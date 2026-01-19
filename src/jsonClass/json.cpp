@@ -149,7 +149,6 @@ class JSON {
             root_type = OBJECT_TYPE;
             object = object_value;
         }
-
         
         Number getNumber() const {
             assertRoot(NUMBER_TYPE);
@@ -167,9 +166,17 @@ class JSON {
             assertRoot(OBJECT_TYPE);
             return object.getKey(key);
         }
+        JSON getObject(){
+            assertRoot(OBJECT_TYPE);
+            return object;
+        }
         JSON getIndex(int idx){
             assertRoot(ARRAY_TYPE);
             return array.getIndex(idx);
+        }
+        JSON getArray(){
+            assertRoot(ARRAY_TYPE);
+            return array;
         }
 
         void setKey(string key, JSON value){

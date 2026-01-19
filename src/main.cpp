@@ -24,7 +24,7 @@ int main(){
 
     try{
         JSON obj = parser.parse(input);
-        obj.print();
+        obj.getObject().print();
     }
     catch(string &err){
         cout<<err<<endl;
