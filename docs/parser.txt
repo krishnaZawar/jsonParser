@@ -1,0 +1,24 @@
+Object : '{' ObjectBody '}' |
+         '{' '}'
+ObjectBody : KeyValuePair |
+       KeyValuePair ',' ObjectBody |
+KeyValuePair : String ':' Value
+
+Array : '[' ArrayBody ']' |
+        '[' ']'
+ArrayBody : Value |
+            Value ',' ArrayBody
+
+Value : String | Number | Boolean | null | Object | Array
+
+Boolean : true | false
+
+String : '"' StringBody '"'
+StringBody : Char | Char StringBody
+Char : [a-zA-Z0-9] | specialCharacters | validEscapeSequences
+
+Exponent : (e|E)(+|-)?[0-9]+
+Fraction : .[0-9]+
+Number : -?([0]Fraction?Exponent? | [1-9][0-9]*Fraction?Exponent?)
+
+JSON : Object | Array

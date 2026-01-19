@@ -1,0 +1,10 @@
+{
+    "name" : "krishna zawar",
+    "age" : 21,
+    "cgpa" : 9.13,
+    "degree_completed" : false,
+    "backlogs" : null,
+    "hobbies" : [
+        "cricket", "badminton", "kubernetes"
+    ]
+}

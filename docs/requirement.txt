@@ -1,0 +1,21 @@
+Goal: 
+    Write a from scratch JSON parser that can be accessed like a class in any project.
+
+Example:
+    JSON : {
+        "field1" : "value1",
+        "field2" : value2,
+        "field3" : {
+            "field1" : "value1"
+        }
+    }
+
+    equivalent class structure should be:
+
+    class JSON {
+        string field1 = "value1";
+        int field2 = value2;
+        struct JSON {
+            string field1 = "value1";
+        } field3;
+    }
