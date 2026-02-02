@@ -28,7 +28,7 @@ class JSON {
                     }
                     return object[key];
                 }
-
+                
                 bool findKey(string key){
                     return object.find(key) != object.end();
                 }
@@ -45,15 +45,19 @@ class JSON {
         class Array {
             private:
                 vector<JSON> array;
+
+            void checkBounds(int idx){
+                if(idx >= array.size() || idx < 0){
+                    throw string("Error : Array index out of bounds");
+                }
+            }
             
             public:
                 Array() {}
 
-                JSON getIndex(int idx){
-                    if(idx >= array.size() || idx < 0){
-                        throw string("Error : array index out of bounds");
-                    }
-                    return array[idx];
+                JSON getIndex(int index){
+                    checkBounds(index);
+                    return array[index];
                 }
 
                 vector<JSON> get() const {
@@ -180,9 +184,11 @@ class JSON {
         }
 
         void setKey(string key, JSON value){
+            assertRoot(OBJECT_TYPE);
             object.setKey(key, value);
         }
         void append(JSON value){
+            assertRoot(ARRAY_TYPE);
             array.append(value);
         }
 
